@@ -1,0 +1,22 @@
+<form (ngSubmit)="onSubmit()" #userForm="ngForm">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" [(ngModel)] ="user.name1" required>
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" [(ngModel)]="user.email" required email >
+    </div>
+    <div>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name = "age" [(ngModel)]="user.age" required min = "18">
+    </div>
+    <button type="submit" [disabled]="!userForm.form.valid">Submit</button>
+</form>
+
+<div *ngIf = "submitted">
+    <h2>You submitted the following:</h2>
+    <p>Name :{{user.name1}} </p>
+    <p>Email : {{user.email}}</p>
+    <p>Age : {{user.age}}</p>
+</div>
